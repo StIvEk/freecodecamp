@@ -1,0 +1,21 @@
+Fill in the object constructor with the methods specified in the tests.
+
+Those methods are getFirstName(), getLastName(), getFullName(), setFirstName(first), setLastName(last), and setFullName(firstAndLast).
+
+All functions that take an argument have an arity of 1, and the argument will be a string.
+
+These methods must be the only available means for interacting with the object.
+
+================
+==== Tests =====
+================
+expect(Object.keys(bob).length).to.eql(6);
+expect(bob instanceof Person).to.be.true;
+expect(bob.firstName).to.be.undefined();
+expect(bob.lastName).to.be.undefined();
+expect(bob.getFirstName()).to.eql('Bob');
+expect(bob.getLastName()).to.eql('Ross');
+expect(bob.getFullName()).to.eql('Bob Ross');
+expect(bob.getFirstName()).to.eql('Happy');
+expect(bob.getLastName()).to.eql('Trees');
+expect(bob.getFullName()).to.eql('George Carlin');
