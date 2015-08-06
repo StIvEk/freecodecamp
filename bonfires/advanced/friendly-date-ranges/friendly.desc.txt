@@ -1,0 +1,21 @@
+Bonfire: Friendly Date Ranges
+Difficulty: 4/5
+================================================================================
+
+Implement a way of converting two dates into a more friendly date range that could be presented to a user.
+
+It must not show any redundant information in the date range.
+
+For example, if the year and month are the same then only the day range should be displayed.
+
+Secondly, if the starting year is the current year, and the ending year can be inferred by the reader, the year should be omitted.
+
+Input date is formatted as YYYY-MM-DD
+================================================================================
+
+assert.deepEqual(friendly(['2015-07-01', '2015-07-04']), ['July 1st','4th'], 'ending month should be omitted since it is already mentioned');
+assert.deepEqual(friendly(['2015-12-01', '2016-02-03']), ['December 1st','February 3rd'], 'one month apart can be inferred it is the next year');
+assert.deepEqual(friendly(['2015-12-01', '2017-02-03']), ['December 1st, 2015','February 3rd, 2017']);
+assert.deepEqual(friendly(['2016-03-01', '2016-05-05']), ['March 1st','May 5th, 2016']);
+assert.deepEqual(friendly(['2017-01-01', '2017-01-01']), ['January 1st, 2017'], 'since we do not duplicate only return once');
+assert.deepEqual(friendly(['2022-09-05', '2023-09-04']), ['September 5th, 2022','September 4th, 2023']);
