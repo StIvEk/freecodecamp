@@ -1,0 +1,117 @@
+@font-face {
+    font-family: 'Digital-7';
+    src: url('assets/fonts/digital-7.ttf');
+    src: local('Digital-7'), url('assets/fonts/digital-7.ttf') format('truetype');
+}
+
+.pomodoro-container {
+    display: block;
+    position: fixed;
+    top: 15%;
+    left: 40%;
+}
+
+.pomodoro {
+    width: 300px;
+    height: 250px;
+    border-radius: 15%;
+    border-color: red;
+    border-style: solid;
+    border-width: 5px;
+    text-align: center;
+}
+
+.timer {
+    /*width: 280px;*/
+    /*position:relative;*/
+    /*margin-top: 5px;*/
+    /*margin-left: 25px;*/
+    margin: auto;
+    color: black;
+    font-size: 90px;
+    font-family: 'Digital-7', sans-serif;
+}
+
+.timer:hover {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.timer-action {
+    font-size: 12px;
+    color: #cccccc;
+    font-family: sans-serif;
+}
+
+.icon {
+    /*margin-top: 10px;*/
+    width: 120px;
+}
+
+.setup {
+    margin-top: 20px;
+    /*text-align: center;*/
+}
+
+.work-setup {
+    float: left;
+    text-align: center;
+    margin-left: 50px;
+}
+
+.rest-setup {
+    float: right;
+    text-align: center;
+    margin-right: 40px;
+}
+
+.minutes-setup {
+    margin-top: 1px;
+    font-size: 35px;
+    font-family: 'Digital-7', monospace;
+    color: gray;
+    border-radius: 15%;
+    padding: 1px 5px;
+    text-align: center;
+}
+
+.work-minutes {
+    border-color: red;
+}
+
+.rest-minutes {
+    border-color: green;
+}
+
+.icon-tmb {
+    width: 40px;
+    height: 40px;
+}
+
+.icon-tmb:hover {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.setup-button {
+    font-size: 30px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    font-weight: bold;
+}
+
+.setup-button:hover {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.digits {
+    display: inline-block;
+    width: 75px;
+}
+
+.colon {
+    display: inline-block;
+    width:5px;
+}
