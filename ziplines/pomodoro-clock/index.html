@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="pomodoro-clock.css">
+    <!--<link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>-->
+    <script src="lib/http_code.jquery.com_jquery-2.0.0.js"></script>
+    <script src="model/Pomodoro.js"></script>
+    <script src="utils.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+<div class="pomodoro-container">
+    <div class="pomodoro">
+        <img class="icon">
+        <div class="timer">
+            <div id="minutes" class='digits'></div>
+            <div class='colon'>:</div>
+            <div id="seconds" class='digits'></div>
+            <div class="timer-action">click to START</div>
+        </div>
+    </div>
+
+    <div class="setup">
+        <div class="work-setup">
+            <img class="icon-tmb" src="assets/images/work.png" title="Reset in Work мode">
+
+            <div class="work-timer-setup">
+                <span id="work-minutes-down" class="setup-button setup-button-down" title="Decrement"> - </span>
+                <input id="work-minutes" type="text" class="minutes-setup work-minutes" size="2" title="Minutes to work"/>
+                <span id="work-minutes-up" class="setup-button setup-button-up" title="Increment"> + </span>
+            </div>
+        </div>
+
+        <div class="rest-setup">
+            <img class="icon-tmb" src="assets/images/rest.png" title="Reset in Rest мode">
+
+            <div class="rest-timer-setup">
+                <span id="rest-minutes-down" class="setup-button setup-button-down" title="Decrement"> - </span>
+                <input id="rest-minutes" type="text" class="minutes-setup rest-minutes" size="2" title="Minutes to rest"/>
+                <span id="rest-minutes-up" class="setup-button setup-button-up" title="Increment"> + </span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
