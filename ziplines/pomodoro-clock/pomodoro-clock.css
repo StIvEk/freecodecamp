@@ -12,22 +12,19 @@
 }
 
 .pomodoro {
+    background-color: black;
     width: 300px;
     height: 250px;
     border-radius: 15%;
-    border-color: red;
+    border-color: orangered;
     border-style: solid;
     border-width: 5px;
     text-align: center;
 }
 
 .timer {
-    /*width: 280px;*/
-    /*position:relative;*/
-    /*margin-top: 5px;*/
-    /*margin-left: 25px;*/
     margin: auto;
-    color: black;
+    color: orangered;
     font-size: 90px;
     font-family: 'Digital-7', sans-serif;
 }
@@ -39,7 +36,7 @@
 
 .timer-action {
     font-size: 12px;
-    color: #cccccc;
+    color: #666666;
     font-family: sans-serif;
 }
 

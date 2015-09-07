@@ -29,23 +29,16 @@ $(document).ready(function () {
     });
 
     $(".timer").click(function () {
-        var nextAction;
-
         switch (pomodoro.state) {
             case "running" :
                 pomodoro.pause();
-                nextAction = "RESUME";
                 break;
             case "initial":
                 pomodoro.start();
-                nextAction = "PAUSE";
                 break;
             default:
                 pomodoro.resume();
-                nextAction = "PAUSE"
         }
-
-        $(".timer-action").html("Click to " + nextAction);
     });
 
     $(".setup-button").click(function () {
@@ -55,15 +48,17 @@ $(document).ready(function () {
     $(".icon-tmb").click(function () {
         workMinutes = $("#work-minutes").val();
         restMinutes = $("#rest-minutes").val();
-        pomodoro.stop();
+        if (pomodoro.state !== "initial") {
+            pomodoro.stop();
+        } else {
+            pomodoro.start();
+        }
 
         if ($(this).parent().hasClass("work-setup")) {
             pomodoro.reset("work");
         } else {
             pomodoro.reset("rest");
         }
-
-        $(".timer-action").prop("title", "Click for Pause");
     });
 
     /**
