@@ -14,20 +14,22 @@ var Pomodoro = (function () {
         var pomodoroConfig = {
                 "work": {
                     "icon": "assets/images/work.png",
-                    "border-color": "red"
+                    "mode-color": "red"
                 },
                 "rest": {
                     "icon": "assets/images/rest.png",
-                    "border-color": "green"
+                    "mode-color": "lawngreen"
                 }
             },
             pomodoroMode = "work",
             timerSecondsRemaining = workMinutes;
+            nextAction = "START";
 
         function setMode(mode) {
             pomodoroMode = mode;
             $(".icon").prop("src", pomodoroConfig[mode]["icon"]);
-            $(".pomodoro").css("border-color", pomodoroConfig[mode]["border-color"]);
+            $(".pomodoro").css("border-color", pomodoroConfig[mode]["mode-color"]);
+            $(".timer").css("color", pomodoroConfig[mode]["mode-color"]);
         }
 
         setMode("work");
@@ -44,7 +46,6 @@ var Pomodoro = (function () {
             },
 
             start: function () {
-                console.log("start() for " + workMinutes);
                 var _this = this,
                     minutes,
                     seconds;
@@ -52,7 +53,10 @@ var Pomodoro = (function () {
                 timerSecondsRemaining = Math.round(workMinutes * 60);
                 _this.state = "running";
 
+                $(".timer-action").html("Click to PAUSE");
+
                 setInterval(function () {
+                    // Change mode when minutes expire
                     if (timerSecondsRemaining === 0) {
                         if (pomodoroMode === "work") {
                             setMode("rest");
@@ -65,6 +69,7 @@ var Pomodoro = (function () {
                         _this.state = "running";
                     }
 
+                    // Setup pomodoro after reset
                     if (_this.state === "reset") {
                         if (pomodoroMode === "work") {
                             timerSecondsRemaining = Math.round(workMinutes * 60);
@@ -87,16 +92,19 @@ var Pomodoro = (function () {
             pause: function () {
                 console.log("pause()");
                 this.state = "paused";
+                $(".timer-action").html("Click to RESUME");
             },
 
             stop: function () {
                 console.log("stop()");
                 this.state = "stopped";
+                $(".timer-action").html("Click to RESUME");
             },
 
             resume: function () {
                 console.log("resume()");
                 this.state = "running";
+                $(".timer-action").html("Click to PAUSE");
             },
 
             reset: function (mode) {
@@ -106,7 +114,11 @@ var Pomodoro = (function () {
                 } else {
                     this.showPomodoro(restMinutes, 0);
                 }
-                this.state = "reset";
+
+                if (this.state !== 'initial') {
+                    this.state = "reset";
+                }
+                $(".timer-action").html("Click to PAUSE");
             }
         }
     }
